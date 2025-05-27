@@ -143,7 +143,7 @@ export function Talk({ root, historyState }: TalkProps) {
         },
       }),
       elt('pre', {
-        className: 'w-full md:w-3/4 min-h-[1.75rem] text-xl text-wrap',
+        className: 'w-full md:w-3/4 min-h-[1.75rem] font-mono text-lg text-wrap',
         children: elt('code', {
           children: AnimatedText({ text: code, delay: 1, deletion_speed: 0.01, write_speed: 0.02 }),
         }),

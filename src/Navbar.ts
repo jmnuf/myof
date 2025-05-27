@@ -35,6 +35,7 @@ export function Navbar({ talkSlide }: NavbarProps) {
         NavItem({ name: 'Home', route: '/', historyState: emptyState(), }),
         NavItem({ name: 'Talk', route: '/talk', historyState: talkState, }),
         NavItem({ name: 'Feed', route: '/feed', historyState: emptyState(), }),
+        NavItem({ name: 'Example', route: '/example', historyState: emptyState(), }),
       ],
     }),
   });

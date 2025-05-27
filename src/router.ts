@@ -4,6 +4,7 @@ import { Talk } from './Talk';
 import { Home } from './Home';
 import { List } from './utils';
 import { Feed } from './Feed';
+import { Example } from './Example';
 
 export interface RouteProps extends BaseProps {
   root: HTMLElement;
@@ -185,7 +186,8 @@ export const router = createRouter({
     '/': Home,
     '/talk': Talk,
     '/feed': Feed,
+    '/example': Example,
   },
 });
-export type Routes = '/' | '/talk' | '/feed' // typeof router extends Router<infer Routes> ? keyof Routes : never;
+export type Routes = '/' | '/talk' | '/feed' | '/example' // typeof router extends Router<infer Routes> ? keyof Routes : never;
 

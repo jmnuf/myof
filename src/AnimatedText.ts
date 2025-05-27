@@ -10,11 +10,11 @@ export interface AnimatedTextProps {
 }
 
 export function AnimatedText(props: AnimatedTextProps) {
-  const delay = props.delay ?? 0;
+  const delay = 0; // props.delay ?? 0;
   const text = props.text;
   const t = new Text(props.text.value);
-  const letter_del_time = props.deletion_speed ?? 0.02;
-  const letter_wrt_time = props.write_speed ?? 0.025;
+  const letter_del_time = 0; //props.deletion_speed ?? 0.02;
+  const letter_wrt_time = 0.01;//props.write_speed ?? 0.025;
   let animation_promise: Promise<void> | null = null;
   text.sub(async (new_text) => {
     if (animation_promise != null) {
@@ -24,7 +24,7 @@ export function AnimatedText(props: AnimatedTextProps) {
     animation_promise = (async () => {
       while (t.data.length) {
         t.data = t.data.trim().substring(0, t.data.length - 1);
-        await sleep(letter_del_time);
+        if (letter_del_time > 0) await sleep(letter_del_time);
       }
       let text = '';
       for (let i = 0; i < new_text.length; ++i) {
@@ -32,7 +32,7 @@ export function AnimatedText(props: AnimatedTextProps) {
         text += char;
         t.data = text;
         if (isspace(char)) continue;
-        await sleep(letter_wrt_time);
+        if (letter_wrt_time > 0) await sleep(letter_wrt_time);
       }
     })().then(() => {
       animation_promise = null;
