@@ -10,6 +10,7 @@ function NavItem(props: { name: string; route: Routes, historyState: HistoryStat
     children: elt('a', {
       className: 'px-4 py-2 cursor-pointer',
       children: props.name,
+      href: props.route,
       onClick(event) {
         event.preventDefault();
         router.push(props.route, props.historyState);
